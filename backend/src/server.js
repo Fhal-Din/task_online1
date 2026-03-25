@@ -43,6 +43,6 @@ io.use((socket, next) => {
 const app = createApp({ db, cache, realtime: createRealtime(io) });
 httpServer.on("request", app);
 
-httpServer.listen(config.port, () => {
-  console.log(`API listening on http://localhost:${config.port}`);
+httpServer.listen(config.port, config.host, () => {
+  console.log(`API listening on http://${config.host}:${config.port}`);
 });
